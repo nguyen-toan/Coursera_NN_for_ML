@@ -7,14 +7,17 @@ o False
 x True
 
 ---
-*Question 2 (still not have the right answers)
+*Question 2
 Data can change over time, in particular we might observe different input/output relationships. In order to account for this we can adapt our learning system to the new data by, for example, training on new examples. 
 
 If the relationship between inputs and outputs for old examples has not changed, how can we prevent a neural network from forgetting about the old data?
-Ignore the issue and hope that everything will be OK.
-Train on a mix of old and new data.
-Prevent the system from changing the weights too much.
-Train two networks, one for old data and one for new data.
+
+o Ignore the issue and hope that everything will be OK.
+o Train on a mix of old and new data.
+o Prevent the system from changing the weights too much.
+x Train two networks, one for old data and one for new data.
+
+** Note: If we train two networks, we would not know which network to use for a test case.
 
 ---
 *Question 3
@@ -33,6 +36,8 @@ x logical reasoning
 o Recognizing fragments of words in a pre-processed sound wave.
 o Recognizing badly written characters.
 x Storing lists of names and birth dates.
+
+**Note: Neural networks are good at finding statistical regularities that allow them to recognize patterns. They are not good at flawlessly applying symbolic rules or storing exact numbers.
 
 ---
 Question 5
