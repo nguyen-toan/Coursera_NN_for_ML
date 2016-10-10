@@ -1,1 +1,97 @@
+---
+*Question 1
+If the output of a model is given by y=f(x;W), then which of the following choices for f are most appropriate when the task is binary classification?
 
+o Logistic sigmoid
+o Binary threshold
+x Linear
+x Linear threshold
+
+---
+*Question 2
+After learning using the Perceptron algorithm, how easy is it to express the learned weight vector in terms of the input vectors and the initial weight vector? Assume the input vectors have real-valued components.
+
+x It requires real numbers.
+o It requires one bit per training case.
+o It requires only one integer per training case.
+x It is impossible.
+
+**Notes:
+- If the perceptron learning algorithm always took the training cases in the same order, then the binary labels on the cases (plus the input vectors) would determine the final weights
+- For every training case, it was added or subtracted from the weight vector an integer number of times during learning. The integer you need is the number of additions minus the number of subtractions.
+
+---
+*Question 3
+Suppose we are given three data points:
+
+ x  --> t
+1,0 --> 1
+1,1 --> 1
+0,1 --> 0
+
+Furthermore, we are given the following weight vector (where the bias is set to 0):
+w=(0,−3)
+
+Let ||w(t)−w(t−1)||2 be the distance between the weight vectors at iteration t and iteration t−1 of the perceptron learning algorithm. Here, for a given 2D vector v, ||v||2 = sqrt(v1^2+v2^2) (this is also called the Euclidean norm). What is the maximum amount by which the weight vectors can change between successive iterations? Note that in this example we are not learning the bias.
+
+2*sqrt(2)
+1
+sqrt(2)
+2
+
+
+---
+*Question 4
+Suppose that we have a perceptron with weight vector w and we create a new set of weights w∗=cw by scaling w by some positive constant c.
+Assume that the bias is zero.
+True or false: if the perceptron now uses w∗ instead then it's classification decisions might change (that is, we have moved the classification boundary).
+
+False
+True
+
+---
+Question 5
+Suppose that we have a perceptron with weight vector w and we create a new set of weights w*=w+c by adding some constant vector c to w. Assume that the bias is zero.
+
+True or false: if the perceptron now uses w* instead then it's classification decisions might change (that is, we have moved the classification boundary).
+
+True
+False
+
+---
+*Question 6
+Suppose we are given four training cases:
+
+ x  --> t
+1,1 --> 1
+1,0 --> 0
+0,1 --> 0
+0,0 --> 1
+
+It is impossible for a binary threshold unit to produce the desired target outputs for all four cases. Now suppose that we add an extra input dimension so that each of the four input vectors consists of three numbers instead of two.
+
+Which of the following ways of setting the value of the extra input will create a set of four input vectors that is linearly separable (i.e. that can be given the right target values by a binary threshold unit with appropriate weights and bias).
+
+o Make the third value be 1 for one of the four input vectors and 0 for the other three.
+x Make the third value of each input vector be the opposite of the first value (i.e. use 1 if the first value is 0 and 0 if the first value is 1)
+
+o Make the third value of each input vector be the same as the target value for that input vector.
+x Make the third value of each input vector be the same as the first value.
+
+** Notes:
+- Imagine the four input vectors as lying at the corners of a horizontal square. If we raise one corner of the square in the third dimension we can now insert a tilted plane that goes beneath two diagonally opposite corners and above the other two diagonally opposite corners.
+
+---
+*Question 7
+Brian wants to use a neural network to predict the price of a stock tomorrow given today's price and the price over the last 10 days. The inputs to this network are price over the last 10 days and the output is tomorrow's price. The hidden units in this network receive information from the layer below, transmit information to the layer above and do not send information within the same layer. Is this an example of a feed-forward network or a recurrent network?
+
+Recurrent
+Feed-forward
+
+
+---
+*Question 8
+Brian and Andy are having an argument about the perceptron algorithm. They have a dataset that the perceptron cannot seem to classify (that is, it fails to converge to a solution). Andy reasons that if he could collect more examples, that might solve the problem by making the data set linearly separable and then the perceptron algorithm will converge. Brian claims that collecting more examples will not help. Which one of them is correct?
+
+Brian
+Andy
