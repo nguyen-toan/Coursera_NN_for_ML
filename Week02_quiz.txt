@@ -34,10 +34,10 @@ w=(0,−3)
 
 Let ||w(t)−w(t−1)||2 be the distance between the weight vectors at iteration t and iteration t−1 of the perceptron learning algorithm. Here, for a given 2D vector v, ||v||2 = sqrt(v1^2+v2^2) (this is also called the Euclidean norm). What is the maximum amount by which the weight vectors can change between successive iterations? Note that in this example we are not learning the bias.
 
-2*sqrt(2)
-1
-sqrt(2)
-2
+x 2*sqrt(2)
+x 1
+o sqrt(2)
+x 2
 
 
 ---
@@ -46,8 +46,8 @@ Suppose that we have a perceptron with weight vector w and we create a new set o
 Assume that the bias is zero.
 True or false: if the perceptron now uses w∗ instead then it's classification decisions might change (that is, we have moved the classification boundary).
 
-False
-True
+o False
+x True
 
 ---
 Question 5
@@ -55,8 +55,12 @@ Suppose that we have a perceptron with weight vector w and we create a new set o
 
 True or false: if the perceptron now uses w* instead then it's classification decisions might change (that is, we have moved the classification boundary).
 
-True
-False
+o True
+x False
+
+** Notes:
+- Adding a constant vector can change the direction of the weight vector. This might change the side on which some data points lie.
+
 
 ---
 *Question 6
@@ -85,13 +89,18 @@ x Make the third value of each input vector be the same as the first value.
 *Question 7
 Brian wants to use a neural network to predict the price of a stock tomorrow given today's price and the price over the last 10 days. The inputs to this network are price over the last 10 days and the output is tomorrow's price. The hidden units in this network receive information from the layer below, transmit information to the layer above and do not send information within the same layer. Is this an example of a feed-forward network or a recurrent network?
 
-Recurrent
-Feed-forward
+x Recurrent
+o Feed-forward
 
+** Notes:
+- Even though Brian's network is modelling a sequence, it is doing this in an entirely feed-forward fashion. Another name for this kind of model is a nonlinear autoregressive process. Recurrent networks are much more powerful for this task and can do a much better job, however they are also more difficult to train.
 
 ---
 *Question 8
 Brian and Andy are having an argument about the perceptron algorithm. They have a dataset that the perceptron cannot seem to classify (that is, it fails to converge to a solution). Andy reasons that if he could collect more examples, that might solve the problem by making the data set linearly separable and then the perceptron algorithm will converge. Brian claims that collecting more examples will not help. Which one of them is correct?
 
-Brian
-Andy
+o Brian
+x Andy
+
+** Notes:
+- If any set A of points is not linearly separable from set B, then adding more examples to either set cannot make them linearly separable.
