@@ -39,12 +39,18 @@ x 1
 o sqrt(2)
 x 2
 
+** Notes:
+- Let's say that at time t we observe that we have misclassified some point x^ with target t^. Then the learning algorithm will proceed as:
+w(t)=w(t−1)+x^ if t^=1
+    =w(t−1)−x^ if t^=0
+In either case, the distance between w(t) and w(t−1) will be ||w(t−1)−w(t−1)±x^||2=||±x^||2=||x^||2 ≤ sqrt(2) since this is the length of the largest input vector (in this case, (1,1)).
+
 
 ---
 *Question 4
-Suppose that we have a perceptron with weight vector w and we create a new set of weights w∗=cw by scaling w by some positive constant c.
+Suppose that we have a perceptron with weight vector w and we create a new set of weights w*=cw by scaling w by some positive constant c.
 Assume that the bias is zero.
-True or false: if the perceptron now uses w∗ instead then it's classification decisions might change (that is, we have moved the classification boundary).
+True or false: if the perceptron now uses w* instead then it's classification decisions might change (that is, we have moved the classification boundary).
 
 o False
 x True
@@ -78,7 +84,6 @@ Which of the following ways of setting the value of the extra input will create 
 
 o Make the third value be 1 for one of the four input vectors and 0 for the other three.
 x Make the third value of each input vector be the opposite of the first value (i.e. use 1 if the first value is 0 and 0 if the first value is 1)
-
 o Make the third value of each input vector be the same as the target value for that input vector.
 x Make the third value of each input vector be the same as the first value.
 
