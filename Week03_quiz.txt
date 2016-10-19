@@ -1,0 +1,114 @@
+---
+*Question 1
+Which of the following neural networks are examples of a feed-forward neural network?
+
+** Notes:
+- A feed-forward network does not have cycles.
+
+---
+*Question 2
+Consider a neural network with only one training case with input x=(x1,x2,…,xn)⊤ and correct output t. 
+There is only one output neuron, which is logistic, i.e. y=σ(w⊤x) (notice that there are no biases).
+The loss function is squared error. The network has no hidden units, so the inputs are directly connected to the output neuron
+with weights w=(w1,w2,…,wn)⊤. We're in the process of training the neural network with the backpropagation algorithm. 
+What will the algorithm add to wi for the next iteration if we use a step size (also known as a learning rate) of ϵ?
+
+x ϵ(t−y)y(1−y)wixi
+x ϵ(t−y)xi
+o −ϵ(y−t)y(1−y)xi
+x ϵ(y−t)y(1−y)wixi
+
+**Notes:
+- There are multiple components to this, all multiplied together: the learning rate, the derivative of the loss function w.r.t. 
+the state of the output unit, the derivative of the output w.r.t. the input to the output unit, and the derivative of the input 
+to the output unit w.r.t. wi.
+
+---
+*Question 3
+Suppose we have a set of examples and Brian comes in and duplicates every example, then randomly reorders the examples. 
+We now have twice as many examples, but no more information about the problem than we had before. 
+If we do not remove the duplicate entries, which one of the following methods will not be affected by this change, 
+in terms of the computer time (time in seconds, for example) it takes to come close to convergence?
+
+x Mini-batch learning, where for every iteration we randomly pick 100 training cases.
+
+o Online learning, where for every iteration we randomly pick a training case.
+x Full-batch learning.
+Correct Response 
+
+** Notes:
+- After Brian's intervention, most mini-batches will contain duplicates and will therefore provide less information.
+- Full-batch learning needs to look at every example before taking a step, therefore each step will be twice as expensive.
+Online learning only looks at one example at a time so each step has the same computational cost as before. 
+On expectation, online learning would make the same progress after looking at half of the dataset as it would have 
+if Brian has not intervened.
+Although this example is a bit contrived, it serves to illustrate how online learning can be advantageous 
+when there is a lot of redundancy in the data.
+
+
+---
+*Question 4
+Consider a linear output unit versus a logistic output unit for a feed-forward network with no hidden layer shown below. 
+The network has a set of inputs x and an output neuron y connected to the input by weights w and bias b.
+
+We're using the squared error cost function even though the task that we care about, in the end, is binary classification.
+At training time, the target output values are 1 (for one class) and 0 (for the other class). At test time we will use the classifier 
+to make decisions in the standard way: the class of an input x according to our model after training is as follows:
+
+class of x=1 if wTx+b≥0
+          =0 otherwise
+Note that we will be training the network using y, but that the decision rule shown above will be the same at test time, 
+regardless of the type of output neuron we use for training.
+
+Which of the following statements is true?
+
+x The error function (the error as a function of the weights) for both types of units will form a quadratic bowl.
+x For a logistic unit, the derivatives of the error function with respect to the weights can have unbounded magnitude, 
+while for a linear unit they will have bounded magnitude.
+o Unlike a logistic unit, using a linear unit will penalize us for getting the answer right too confidently.
+x At the solution that minimizes the error, the learned weights are always the same for both types of units; they only differ in how they get to this solution.
+
+**Notes
+- The squared error as a function of the weights is not a quadratic function when we use a logistic unit.
+- The derivative of the squared error with respect to the weights when using a linear unit depends on the distance 
+between the prediction and the target. In other words: the further the prediction from the target, the larger the magnitude 
+of the gradient. The prediction can be arbitrarily bad.
+- If the target is 1 and the prediction is 100, the logistic unit will squash this down to a number very close to 1 and so
+we will not incur a very high cost. With a linear unit, the difference between the prediction and target will be very large and 
+we will incur a high cost as a result, despite the fact that we get the classification decision correct.
+- Using a linear neuron with squared error results in an objective function that is quadratic with respect to the weights, 
+while a logistic unit results in one that is not. Therefore, it is quite likely that they do not share the same optimal solution.
+
+
+---
+Question 5
+Consider a neural network with one layer of linear hidden units (intended to be fully connected to the input units) and 
+a logistic output unit. Suppose there are n input units and m hidden units.
+Which of the following statements are true? Check all that apply.
+
+
+x A network with m>n can learn functions that a network with m≤n cannot learn.
+x There is a value (of at least 1) for m, such that there are functions that this network cannot learn to compute and 
+that a network without a hidden layer (with the same inputs) can learn to compute.
+o Any function that can be computed by such a network can also be computed by a network without a hidden layer.
+o A network with m>n has more learnable parameters than a network without any hidden layers (with the same inputs).
+
+** Notes:
+- Linear hidden units don't add modeling capacity to the network.
+- The bulk of the learnable parameters is in the connections from the input units to the hidden units. 
+There are m⋅n learnable parameters there.
+
+
+---
+*Question 6
+Brian wants to make his feed-forward network (with no hidden units) using a logistic output neuron more powerful.
+He decides to combine the predictions of two networks by averaging them. The first network has weights w1 and the second network 
+has weights w2. The predictions of this network for an example x are therefore:
+
+y=1/2(1/(1+e^(−z1))) + 1/2(1/(1+e(−z2))) with z1=wT1*x and z2=wT2*x.
+
+Can we get the exact same predictions as this combination of networks by using a single feed-forward network (again with no hidden units)
+using a logistic output neuron and weights w3=1/2(w1+w2)?
+
+x Yes
+o No
