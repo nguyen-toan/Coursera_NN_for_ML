@@ -31,10 +31,9 @@ If we do not remove the duplicate entries, which one of the following methods wi
 in terms of the computer time (time in seconds, for example) it takes to come close to convergence?
 
 x Mini-batch learning, where for every iteration we randomly pick 100 training cases.
-
 o Online learning, where for every iteration we randomly pick a training case.
 x Full-batch learning.
-Correct Response 
+
 
 ** Notes:
 - After Brian's intervention, most mini-batches will contain duplicates and will therefore provide less information.
